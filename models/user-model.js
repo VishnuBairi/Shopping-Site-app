@@ -1,10 +1,7 @@
 const mongoose=require("mongoose");
 
 const userSchema=mongoose.Schema({
-    fullname:{
-        type:String,
-        minLength:8
-    },
+    fullname:String,
     email:String,
     password:String,
     phone:String,
@@ -12,11 +9,10 @@ const userSchema=mongoose.Schema({
         type:Array,
         default:[]
     },
-    cart:{
-        type:Array,
-        default:[]
-    },
-    isAdmin:Boolean,
+    cart:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"product"
+    }],
     picture:String
 })
 
